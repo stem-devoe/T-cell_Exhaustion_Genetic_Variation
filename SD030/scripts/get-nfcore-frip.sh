@@ -1,0 +1,1 @@
+ for i in /Scottbrowne/seq/tmp/SD030/nfcore_outs/atac/bowtie2/merged_library/macs2/narrow_peak/qc/*FRiP*; do tail $i -n 1 >> /Scottbrowne/members/smd/Projects/SD030/nfcore_FRIP.txt; done

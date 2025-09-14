@@ -1,0 +1,3 @@
+in vivo genetic variation analysis
+uses nfcore mapping and peak calling from SD022
+however in this the memory samples will not be used for generating the consensus peak set and onward

@@ -1,0 +1,47 @@
+# Run in CUTnTAG conda env
+
+########## Get SNPS per peak for all peaks in consensus set ##########
+# follow naming convention of R workflow chr#_start(0-based)
+
+awk 'OFS=FS="\t" {$4=$1"_"$2; print $0}' /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.bed > /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.bed
+
+# just run a test to make sure its properly formatted
+bedtools intersect -c -a /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.bed -b /Scottbrowne/members/smd/genomes/NOD_SHILTJ_v5_REL1505/vcf/NOD_ShiLtJ.mgp.v5.snps.dbSNP142.sort.chrUCSC.PASS.hqHetSNP.vcf | head
+
+bedtools intersect -c -a /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.bed -b /Scottbrowne/members/smd/genomes/NOD_SHILTJ_v5_REL1505/vcf/NOD_ShiLtJ.mgp.v5.snps.dbSNP142.sort.chrUCSC.PASS.hqHetSNP.vcf > /Scottbrowne/members/smd/Projects/SD029/data/All_Samples.fwp.filter.non_overlapping.renamed.countPASSandHetSNPs.bed
+
+bedtools intersect -c -a /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.bed -b /Scottbrowne/members/smd/genomes/NOD_SHILTJ_v5_REL1505/vcf/NOD_ShiLtJ.mgp.v5.snps.dbSNP142.sort.chrUCSC.onlyPASS.vcf > /Scottbrowne/members/smd/Projects/SD029/data/All_Samples.fwp.filter.non_overlapping.renamed.countOnlyPASS.bed
+
+
+########## peak fastas for motif annotation ###########
+
+# get NOD coordinates of all peaks ####
+/Scottbrowne/members/smd/MMARGE_v1.0/bin/MMARGE.pl shift_to_strain -bed -ind NOD_SHILTJ -data_dir /Scottbrowne/members/smd/genomes/NOD_SHILTJ_v5_REL1505/MMARGE/mutation_files -files /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.bed 
+
+awk 'OFS=FS="\t" {$1=($1"_allele_1"); print $0}' /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed_shifted_to_NOD_SHILTJ.txt > /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.shifted_to_NOD_SHILTJ.bed
+
+
+# get fasta for all consensus peaks for B6 ####
+bedtools getfasta -fi /Scottbrowne/members/smd/genomes/mm10/fasta/mm10.fa -bed /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.bed -name -fo /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.fa
+
+# get fasta for all consensus peaks for NOD ####
+bedtools getfasta -fi /Scottbrowne/members/smd/genomes/NOD_SHILTJ_v5_REL1505/MMARGE/genome/genome-NOD.fa -bed /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.shifted_to_NOD_SHILTJ.bed -name -fo /scratch2/devoes/SD029/macs2_bed/archr-iterative-merge_peaks-by-group_variableExt/globallambda/150bp/All_Samples.fwp.filter.non_overlapping.renamed.shifted_to_NOD_SHILTJ.fa
+
+
+
+########## R SD029-02_findMotifs ##########
+
+# using runFIMO
+# save results as bed WITH motif sequence in ID field to check for SNPs
+
+########## Shell ##################
+
+# shift nod coordinates back to b6
+/Scottbrowne/members/smd/MMARGE_v1.0/bin/MMARGE.pl shift -bed -ind NOD_SHILTJ -data_dir /Scottbrowne/members/smd/genomes/NOD_SHILTJ_v5_REL1505/MMARGE/mutation_files -files $(ls /scratch2/devoes/SD029/HOCOMOCO/fimo_outs/ConsensusPeaks_NOD*.bed | tr '\n' ' ')
+
+for i in /scratch2/devoes/SD029/HOCOMOCO/fimo_outs/*shifted_from_NOD_SHILTJ.txt; do mv $i ${i/".txt"/".bed"}; done
+
+
+############### R SD029-03 catgorizeMotifs ######################
+
+
