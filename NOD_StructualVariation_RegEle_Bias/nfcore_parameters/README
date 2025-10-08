@@ -1,0 +1,1 @@
+This was just for read trimming, alignment, and filtering of alignment. DO NOT use the nfcore for any data otherwise: the gtf doesn't match but I had to put a file for it to run
