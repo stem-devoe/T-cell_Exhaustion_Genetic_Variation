@@ -1,0 +1,20 @@
+fasta: '/Scottbrowne/seq/tmp/devoes/SD032/BioProject_PRJEB47108/GCA_921998325.2_NOD_ShiLtJ_v3/GCA_921998325.2_NOD_ShiLtJ_v3_genomic.fna'
+gtf: '/Scottbrowne/members/smd/genomes/NOD_SHILTJ_v5_REL1505/MMARGE/gtf/mm10.ensGene_shifted_to_NOD_SHILTJ.gtf'
+bowtie2_index: '/Scottbrowne/seq/tmp/devoes/SD032/BioProject_PRJEB47108/bowtie2_index'
+macs_gsize: 1.87e9 # macs2 needs EFFECTIVE genome size
+mito_name: 'chrM'
+aligner: 'bowtie2'
+save_trimmed: True
+skip_merge_replicates: True
+save_align_intermeds: False
+narrow_peak: True
+macs_fdr: 0.05
+skip_peak_qc: True
+skip_peak_annotation: True
+skip_consensus_peaks: True
+skip_deseq2_qc: True
+skip_preseq: True
+skip_plot_profile: True
+skip_plot_fingerprint: True
+skip_igv: True
+skip_ataqv: True
