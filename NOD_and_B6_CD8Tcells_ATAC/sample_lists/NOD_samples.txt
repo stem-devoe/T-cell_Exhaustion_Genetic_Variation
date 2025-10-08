@@ -1,0 +1,15 @@
+/Scottbrowne/seq/lab/atac/fastq/200203_A00405_0203_AHGV7MDRXX/2019_133_1
+/Scottbrowne/seq/lab/atac/fastq/200203_A00405_0203_AHGV7MDRXX/2019_133_11
+/Scottbrowne/seq/lab/atac/fastq/200203_A00405_0203_AHGV7MDRXX/2019_133_3
+/Scottbrowne/seq/lab/atac/fastq/200203_A00405_0203_AHGV7MDRXX/2019_133_7
+/Scottbrowne/seq/lab/atac/fastq/201029_A00405_0294_BHTKYMDRXX/2020_077_4
+/Scottbrowne/seq/lab/atac/fastq/201029_A00405_0294_BHTKYMDRXX/2020_077_5
+/Scottbrowne/seq/lab/atac/fastq/201029_A00405_0294_BHTKYMDRXX/2020_077_7
+/Scottbrowne/seq/lab/atac/fastq/210721_A00405_0432_BHCYFFDRXY/2021_029_1
+/Scottbrowne/seq/lab/atac/fastq/210721_A00405_0432_BHCYFFDRXY/2021_029_4
+/Scottbrowne/seq/lab/atac/fastq/210721_A00405_0432_BHCYFFDRXY/2021_029_6
+/Scottbrowne/seq/lab/atac/fastq/210721_A00405_0432_BHCYFFDRXY/2021_029_9
+/Scottbrowne/seq/lab/atac/fastq/211116_A00405_0493_AHK33HDRXY/2021_056_1
+/Scottbrowne/seq/lab/atac/fastq/211116_A00405_0493_AHK33HDRXY/2021_056_3
+/Scottbrowne/seq/lab/atac/fastq/211116_A00405_0493_AHK33HDRXY/2021_056_4
+/Scottbrowne/seq/lab/atac/fastq/211116_A00405_0493_AHK33HDRXY/2021_056_7

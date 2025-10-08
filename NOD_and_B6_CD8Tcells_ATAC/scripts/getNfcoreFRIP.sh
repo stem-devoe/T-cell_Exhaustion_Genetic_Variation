@@ -1,0 +1,2 @@
+for i in /scratch2/devoes/SD029/nfcore_outs/NOD/bowtie2/merged_library/macs2/narrow_peak/qc/*FRiP*; do tail $i -n 1 >> /Scottbrowne/members/smd/Projects/SD029/nfcore_FRIP.txt; done
+for i in /scratch2/devoes/SD029/nfcore_outs/B6/bowtie2/merged_library/macs2/narrow_peak/qc/*FRiP*; do tail $i -n 1 >> /Scottbrowne/members/smd/Projects/SD029/nfcore_FRIP.txt; done
