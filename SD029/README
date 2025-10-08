@@ -1,3 +1,1 @@
-in vivo genetic variation analysis
-uses nfcore mapping and peak calling from SD022
-however in this the memory samples will not be used for generating the consensus peak set and onward
+Analysis of active regulatory elements in CD8 T cells in the naive state or exhaustion from chronic LCMV infection and exhausted CAR-T cells from NOD/ShiLtJ and C57BL/6J mice 
