@@ -1,0 +1,20 @@
+fasta: '/mnt/nautilus/members/smd/genomes/mm10/fasta/mm10.fa'
+gtf: '/mnt/nautilus/members/smd/genomes/mm10/gtf/mm10.ensGene.gtf'
+bowtie2_index: '/mnt/nautilus/members/smd/genomes/mm10/Index/bowtie2'
+macs_gsize: 1.87e9 # macs2 needs EFFECTIVE genome size (# bases able to be sequenced)
+blacklist: '/mnt/nautilus/members/smd/genomes/mm10/blacklist/mm10-blacklist-v2_chrUnRandomBlacklist.bed'
+mito_name: 'chrM'
+aligner: 'bowtie2'
+skip_merge_replicates: True
+save_align_intermeds: False
+narrow_peak: True
+macs_fdr: 0.05
+skip_peak_qc: True
+skip_peak_annotation: True
+skip_consensus_peaks: True
+skip_deseq2_qc: True
+skip_preseq: True
+skip_plot_profile: True
+skip_plot_fingerprint: True
+skip_igv: True
+skip_ataqv: True
